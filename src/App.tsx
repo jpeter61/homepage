@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    // "min-h-screen" ensures the background covers the whole viewport
+    <div className="hero min-h-screen bg-base-200">
 
-export default App
+      <div className="hero-content text-center">
+        <div className="max-w-md">
+
+          <div className="badge badge-outline mb-4 p-3">
+            Software Engineer @ See Eyewear
+          </div>
+
+          <h1 className="text-5xl font-bold">
+            Clarity From Complexity
+          </h1>
+
+          <p className="py-6 text-lg leading-relaxed">
+            Hi, I'm <span className="font-semibold">Jamie Peterson</span>.
+            With over seven years of experience, I specialize in distilling tough
+            technical problems into elegant solutions.
+            <br className="hidden md:block" /> {/* Line break on desktop for readability */}
+            Currently, I lead software initiatives and advise on IT strategy at <span className="font-semibold">See Eyewear</span>.
+          </p>
+
+          <a
+            href="https://www.linkedin.com/in/YOUR_USERNAME"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            Connect on LinkedIn
+          </a>
+
+        </div>
+      </div>
+    </div>
+  );
+}
