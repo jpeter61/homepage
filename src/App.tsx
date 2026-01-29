@@ -25,7 +25,7 @@ export default function App() {
           </p>
 
           <a
-            href="https://www.linkedin.com/in/YOUR_USERNAME"
+            href="https://www.linkedin.com/in/jamie-peterson"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
