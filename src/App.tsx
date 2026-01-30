@@ -1,7 +1,22 @@
-export default function App() {
-  return (
-    <div className="hero min-h-screen bg-base-200 relative overflow-hidden">
+import { useEffect } from "react";
 
+export default function App() {
+  useEffect(() => {
+    const heroElement = document.querySelector('.hero');
+    if (heroElement) {
+      const bgColor = window.getComputedStyle(heroElement).backgroundColor;
+      let metaTag = document.querySelector('meta[name="theme-color"]');
+      if (!metaTag) {
+        metaTag = document.createElement('meta');
+        metaTag.setAttribute('name', 'theme-color');
+        document.head.appendChild(metaTag);
+      }
+
+      metaTag.setAttribute('content', bgColor);
+    }
+  });
+  return (
+    <div className="hero min-h-dvh bg-base-200 relative overflow-hidden">
       <svg style={{ display: 'none' }}>
         <filter id="noiseFilter">
           <feTurbulence
@@ -35,7 +50,7 @@ export default function App() {
             technical problems into elegant solutions.
 
             {" "}<br className="hidden md:block" />
-            
+
             Currently, I <strong>lead software initiatives</strong> and advise executive leadership on <strong>IT strategy</strong> at <span className="font-semibold">See Eyewear</span>.
           </p>
 
@@ -51,7 +66,7 @@ export default function App() {
         </div>
       </div>
 
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-6 right-6 z-50 mb-[env(safe-area-inset-bottom)]">
         <div className="dropdown dropdown-top dropdown-end">
 
           <div
