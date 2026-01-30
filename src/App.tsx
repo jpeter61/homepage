@@ -15,7 +15,7 @@ export default function App() {
           </h1>
 
           <p className="py-6 text-lg leading-relaxed">
-            Hi, I'm <span className="font-semibold">Jamie Peterson</span>.
+            Hi, I'm <span className="font-semibold text-primary">Jamie Peterson</span>.
             With over seven years of experience, I specialize in distilling tough
             technical problems into elegant solutions.
             <br className="hidden md:block" /> {/* Line break on desktop for readability */}
