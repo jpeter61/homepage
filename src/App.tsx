@@ -16,7 +16,7 @@ export default function App() {
     }
   });
   return (
-    <div className="hero min-h-dvh bg-base-200 relative overflow-hidden">
+    <div className="hero min-h-dvh relative overflow-hidden">
       <svg style={{ display: 'none' }}>
         <filter id="noiseFilter">
           <feTurbulence
@@ -26,7 +26,7 @@ export default function App() {
         </filter>
       </svg>
 
-      <div className="grainy-background absolute inset-0 w-full h-full">
+      <div className="grainy-background fixed inset-0 w-full h-full">
         <div className="blob blob-1"></div>
         <div className="blob blob-2"></div>
         <div className="blob blob-3"></div>
