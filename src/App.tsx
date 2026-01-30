@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function App() {
   return (
     // "min-h-screen" ensures the background covers the whole viewport
