@@ -26,7 +26,7 @@ export default function App() {
         </filter>
       </svg>
 
-      <div className="grainy-background fixed inset-0 -z-10 w-[120vw] h-[120vh] -top-[10vh] -left-[10vw]">
+      <div className="grainy-background fixed inset-0 w-[120vw] h-[120vh] -top-[10vh] -left-[10vw]">
         <div className="blob blob-1"></div>
         <div className="blob blob-2"></div>
         <div className="blob blob-3"></div>
