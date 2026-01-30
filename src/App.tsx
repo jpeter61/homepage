@@ -21,8 +21,8 @@ export default function App() {
       <div className="hero-content text-center relative z-10">
         <div className="max-w-md">
 
-          <div className="badge badge-outline mb-4 p-3">
-            Software Engineer @ See Eyewear
+          <div className="badge badge-outline mb-4 p-3 font-medium">
+            Senior Software Engineer & IT Strategist
           </div>
 
           <h1 className="text-5xl font-bold">
@@ -33,8 +33,10 @@ export default function App() {
             Hi, I'm <span className="font-semibold">Jamie Peterson</span>.
             With over seven years of experience, I specialize in distilling tough
             technical problems into elegant solutions.
+
             {" "}<br className="hidden md:block" />
-            Currently, I lead software initiatives and advise on IT strategy at <span className="font-semibold">See Eyewear</span>.
+            
+            Currently, I <strong>lead software initiatives</strong> and advise executive leadership on <strong>IT strategy</strong> at <span className="font-semibold">See Eyewear</span>.
           </p>
 
           <a
