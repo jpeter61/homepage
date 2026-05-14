@@ -115,3 +115,21 @@
   66% { transform: translate(-20px, 20px) scale(0.9); }
   100% { transform: translate(0, 0) scale(1); }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+    transform: none;
+    filter: blur(40px);
+  }
+
+  .grainy-background::before {
+    filter: none;
+    opacity: 0.15;
+    mix-blend-mode: normal;
+  }
+
+  .btn {
+    transition: none !important;
+  }
+}

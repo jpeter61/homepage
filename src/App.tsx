@@ -2,22 +2,36 @@ import { useEffect } from "react";
 
 export default function App() {
   useEffect(() => {
-    const heroElement = document.querySelector('.hero');
+    const heroElement = document.querySelector(".hero");
     if (heroElement) {
       const bgColor = window.getComputedStyle(heroElement).backgroundColor;
-      let metaTag = document.querySelector('meta[name="theme-color"]');
+      let metaTag = document.querySelector('meta[name="theme-color"]:not([media])');
       if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('name', 'theme-color');
+        metaTag = document.createElement("meta");
+        metaTag.setAttribute("name", "theme-color");
         document.head.appendChild(metaTag);
       }
 
-      metaTag.setAttribute('content', bgColor);
+      metaTag.setAttribute("content", bgColor);
     }
-  });
+  }, []);
+
+  useEffect(() => {
+    const token = import.meta.env.VITE_CF_WEB_ANALYTICS_TOKEN;
+    if (!token || document.querySelector('script[data-cf-beacon]')) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.defer = true;
+    script.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    script.setAttribute("data-cf-beacon", JSON.stringify({ token }));
+    document.head.appendChild(script);
+  }, []);
+
   return (
     <div className="hero min-h-dvh relative overflow-hidden">
-      <svg style={{ display: 'none' }}>
+      <svg style={{ display: "none" }}>
         <filter id="noiseFilter">
           <feTurbulence
             type="fractalNoise"
@@ -59,6 +73,7 @@ export default function App() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
+            aria-label="Open Jamie Peterson LinkedIn profile in a new tab"
           >
             Connect on LinkedIn
           </a>
@@ -69,11 +84,10 @@ export default function App() {
       <div className="fixed bottom-6 right-6 z-50 mb-[env(safe-area-inset-bottom)]">
         <div className="dropdown dropdown-top dropdown-end">
 
-          <div
-            tabIndex={0}
-            role="button"
+          <button
+            type="button"
             className="btn btn-circle btn-ghost bg-base-100/40 backdrop-blur-md border border-white/20 shadow-lg hover:bg-base-100 transition-all duration-300"
-            aria-label="Site Inspiration"
+            aria-label="Open design inspiration menu"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -85,11 +99,13 @@ export default function App() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
             </svg>
-          </div>
+          </button>
 
           <div
             tabIndex={0}
             className="dropdown-content card card-compact w-64 p-2 shadow-xl bg-base-100/90 backdrop-blur-md border border-base-300 mb-2 text-left"
+            role="dialog"
+            aria-label="Design inspiration details"
           >
             <div className="card-body">
               <h3 className="card-title text-sm">Design Inspiration</h3>

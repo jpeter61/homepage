@@ -1,78 +1,39 @@
 # homepage
-jamiepeterson.me
 
-# Develop (React + TypeScript + Vite Template)
+Personal landing page for **jamiepeterson.me**, built with React, TypeScript, Vite, Tailwind CSS, and DaisyUI.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Scripts
 
-Currently, two official plugins are available:
+- `npm run dev` — start local development server
+- `npm run lint` — run ESLint
+- `npm run build` — typecheck and create production build
+- `npm run preview` — preview production build locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Cloudflare Pages deployment
 
-## React Compiler
+- Build command: `npm run build`
+- Build output directory: `dist`
+- SPA routing fallback is configured via `public/_redirects`
+- Security/caching headers are configured via `public/_headers`
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Search engine and social metadata
 
-Note: This will impact Vite dev & build performances.
+This repo includes:
 
-## Expanding the ESLint configuration
+- Canonical URL, Open Graph, Twitter tags, and structured data in `index.html`
+- Crawl/index files in:
+  - `public/robots.txt`
+  - `public/sitemap.xml`
+- Web app manifest in `public/site.webmanifest`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Optional Cloudflare Web Analytics
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Cloudflare Web Analytics loads only when the env var below is set:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- `VITE_CF_WEB_ANALYTICS_TOKEN`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Example:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+VITE_CF_WEB_ANALYTICS_TOKEN=your-token-value
 ```
