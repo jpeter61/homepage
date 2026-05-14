@@ -13,18 +13,18 @@ Personal landing page for **jamiepeterson.me**, built with React, TypeScript, Vi
 
 - Build command: `npm run build`
 - Build output directory: `dist`
-- SPA routing fallback is configured via `/home/runner/work/homepage/homepage/public/_redirects`
-- Security/caching headers are configured via `/home/runner/work/homepage/homepage/public/_headers`
+- SPA routing fallback is configured via `public/_redirects`
+- Security/caching headers are configured via `public/_headers`
 
 ## Search engine and social metadata
 
 This repo includes:
 
-- Canonical URL, Open Graph, Twitter tags, and structured data in `/home/runner/work/homepage/homepage/index.html`
+- Canonical URL, Open Graph, Twitter tags, and structured data in `index.html`
 - Crawl/index files in:
-  - `/home/runner/work/homepage/homepage/public/robots.txt`
-  - `/home/runner/work/homepage/homepage/public/sitemap.xml`
-- Web app manifest in `/home/runner/work/homepage/homepage/public/site.webmanifest`
+  - `public/robots.txt`
+  - `public/sitemap.xml`
+- Web app manifest in `public/site.webmanifest`
 
 ## Optional Cloudflare Web Analytics
 
